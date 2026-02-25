@@ -166,6 +166,10 @@ namespace Animal
     {
       int displayNumber;
       int animalCount;
+      int oneStep;
+
+      oneStep = 1;
+
       if (animals.Count == 0)
       {
         Console.WriteLine("The animal list is empty.");
@@ -178,9 +182,9 @@ namespace Animal
 
       animalCount = animals.Count;
 
-      for (int animalIndex = 0; animalIndex < animalCount; animalIndex++)
+      for (int animalIndex = 0; animalIndex < animalCount; ++animalIndex)
       {
-        displayNumber = animalIndex + 1;
+        displayNumber = animalIndex + oneStep;
 
         Console.WriteLine(displayNumber + ". " + animals[animalIndex].GetInfo());
       }
@@ -189,6 +193,7 @@ namespace Animal
     public void DisplayAnimalByName(string searchName)
     {
       int animalCount;
+
       if (string.IsNullOrWhiteSpace(searchName))
       {
         Console.WriteLine("Name cannot be empty.");
@@ -198,7 +203,7 @@ namespace Animal
 
       animalCount = animals.Count;
 
-      for (int animalIndex = 0; animalIndex < animalCount; animalIndex++)
+      for (int animalIndex = 0; animalIndex < animalCount; ++animalIndex)
       {
         if (animals[animalIndex].name.Equals(searchName, StringComparison.OrdinalIgnoreCase))
         {
