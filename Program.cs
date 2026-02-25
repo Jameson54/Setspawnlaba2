@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 
-namespace AnimalKingdom
+namespace Animal
 {
-  internal abstract class Animal
+  public class Animal
   {
     public string name;
     public int age;
     public string habitat;
     public string foodType;
 
-    protected Animal(string animalName, int animalAge, string animalHabitat, string animalFoodType)
+    public Animal(string animalName, int animalAge, string animalHabitat, string animalFoodType)
     {
       name = animalName;
       age = animalAge;
@@ -24,7 +24,7 @@ namespace AnimalKingdom
     }
   }
 
-  internal class Mammal : Animal
+  public class Mammal : Animal
   {
     public bool hasFur;
 
@@ -51,7 +51,7 @@ namespace AnimalKingdom
     }
   }
 
-  internal class Bird : Animal
+  public class Bird : Animal
   {
     public double wingSpan;
 
@@ -67,7 +67,7 @@ namespace AnimalKingdom
     }
   }
 
-  internal class Fish : Animal
+  public class Fish : Animal
   {
     public string waterType;
 
@@ -83,7 +83,7 @@ namespace AnimalKingdom
     }
   }
 
-  internal class Reptile : Animal
+  public class Reptile : Animal
   {
     public bool isVenomous;
 
@@ -110,7 +110,7 @@ namespace AnimalKingdom
     }
   }
 
-  internal class Amphibian : Animal
+  public class Amphibian : Animal
   {
     public string skinMoisture;
 
@@ -126,7 +126,7 @@ namespace AnimalKingdom
     }
   }
 
-  internal class AnimalManager
+  public class AnimalManager
   {
     private static AnimalManager instance;
     private List<Animal> animals;
@@ -164,6 +164,8 @@ namespace AnimalKingdom
 
     public void DisplayAllAnimals()
     {
+      int displayNumber;
+      int animalCount;
       if (animals.Count == 0)
       {
         Console.WriteLine("The animal list is empty.");
@@ -174,11 +176,11 @@ namespace AnimalKingdom
       Console.WriteLine("");
       Console.WriteLine("=== ALL ANIMALS ===");
 
-      int animalCount = animals.Count;
+      animalCount = animals.Count;
 
       for (int animalIndex = 0; animalIndex < animalCount; animalIndex++)
       {
-        int displayNumber = animalIndex + 1;
+        displayNumber = animalIndex + 1;
 
         Console.WriteLine(displayNumber + ". " + animals[animalIndex].GetInfo());
       }
@@ -186,6 +188,7 @@ namespace AnimalKingdom
 
     public void DisplayAnimalByName(string searchName)
     {
+      int animalCount;
       if (string.IsNullOrWhiteSpace(searchName))
       {
         Console.WriteLine("Name cannot be empty.");
@@ -193,7 +196,7 @@ namespace AnimalKingdom
         return;
       }
 
-      int animalCount = animals.Count;
+      animalCount = animals.Count;
 
       for (int animalIndex = 0; animalIndex < animalCount; animalIndex++)
       {
@@ -209,11 +212,14 @@ namespace AnimalKingdom
     }
   }
 
-  internal static class Program
+  public static class Program
   {
     private static void Main()
     {
       AnimalManager manager = AnimalManager.Instance;
+
+      string choice;
+      string name;
 
       manager.AddAnimal(new Mammal("Leo", 5, "Savanna", "Carnivore", true));
       manager.AddAnimal(new Bird("Aquila", 3, "Mountains", "Carnivore", 2.5));
@@ -230,8 +236,8 @@ namespace AnimalKingdom
         Console.WriteLine("3. Exit");
         Console.Write("Choose option: ");
 
-        string choice = Console.ReadLine();
-
+        choice = Console.ReadLine();
+        
         if (choice == "1")
         {
           manager.DisplayAllAnimals();
@@ -240,7 +246,7 @@ namespace AnimalKingdom
         {
           Console.Write("Enter animal name: ");
 
-          string name = Console.ReadLine();
+          name = Console.ReadLine();
 
           manager.DisplayAnimalByName(name);
         }
