@@ -28,7 +28,7 @@ namespace Animal
   {
     public bool hasFur;
 
-    public Mammal(string mammalName, int mammalAge, string mammalHabitat, string mammalFoodType, bool mammalHasFur) 
+    public Mammal(string mammalName, int mammalAge, string mammalHabitat, string mammalFoodType, bool mammalHasFur)
       : base(mammalName, mammalAge, mammalHabitat, mammalFoodType)
     {
       hasFur = mammalHasFur;
@@ -55,7 +55,7 @@ namespace Animal
   {
     public double wingSpan;
 
-    public Bird(string birdName, int birdAge, string birdHabitat, string birdFoodType, double birdWingSpan) 
+    public Bird(string birdName, int birdAge, string birdHabitat, string birdFoodType, double birdWingSpan)
       : base(birdName, birdAge, birdHabitat, birdFoodType)
     {
       wingSpan = birdWingSpan;
@@ -71,7 +71,7 @@ namespace Animal
   {
     public string waterType;
 
-    public Fish(string fishName, int fishAge, string fishHabitat, string fishFoodType, string fishWaterType) 
+    public Fish(string fishName, int fishAge, string fishHabitat, string fishFoodType, string fishWaterType)
       : base(fishName, fishAge, fishHabitat, fishFoodType)
     {
       waterType = fishWaterType;
@@ -87,7 +87,7 @@ namespace Animal
   {
     public bool isVenomous;
 
-    public Reptile(string reptileName, int reptileAge, string reptileHabitat, string reptileFoodType, bool reptileIsVenomous) 
+    public Reptile(string reptileName, int reptileAge, string reptileHabitat, string reptileFoodType, bool reptileIsVenomous)
       : base(reptileName, reptileAge, reptileHabitat, reptileFoodType)
     {
       isVenomous = reptileIsVenomous;
@@ -114,7 +114,7 @@ namespace Animal
   {
     public string skinMoisture;
 
-    public Amphibian(string amphibianName, int amphibianAge, string amphibianHabitat, string amphibianFoodType, string amphibianSkinMoisture) 
+    public Amphibian(string amphibianName, int amphibianAge, string amphibianHabitat, string amphibianFoodType, string amphibianSkinMoisture)
       : base(amphibianName, amphibianAge, amphibianHabitat, amphibianFoodType)
     {
       skinMoisture = amphibianSkinMoisture;
@@ -242,7 +242,7 @@ namespace Animal
         Console.Write("Choose option: ");
 
         choice = Console.ReadLine();
-        
+
         if (choice == "1")
         {
           manager.DisplayAllAnimals();
